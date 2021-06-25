@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/order?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    hikari:
+      username: root
+      password: zpj523123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        #指定nacos的地址，不要加http
+        server-addr: localhost:8848
+        #执行集群名称
+        cluster-name: NJ
+    sentinel:
+      transport:
+        #指定sentinel的控制台地址
+        dashboard: localhost:8080
+  application:
+    name: order
+server:
+  port: 9002
+mybatis-plus:
+  mapper-locations: classpath*:/order/mapper/**Mapper.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: true
+
+#  global-config:
+#    db-config:
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0

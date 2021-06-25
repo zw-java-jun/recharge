@@ -1,0 +1,20 @@
+server:
+  port: 9004
+spring:
+  application:
+    #指定注册到Nacos上的服务名称
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        #指定nacos的服务地址
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        #指定sentinel的控制台地址
+        dashboard: localhost:8080
+    gateway:
+      discovery:
+        locator:
+          #让gateway通过服务组件发现其他的微服务
+          enabled: true
